@@ -1,6 +1,7 @@
 import Reveal from './Reveal'
 import { useInView } from '../hooks'
 import { RINGS } from '../data'
+import './Sustainability.css'
 
 export default function Sustainability() {
   const [ref, seen] = useInView()

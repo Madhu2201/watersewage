@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import Reveal from './Reveal'
 import { useInView, useCountUp } from '../hooks'
 import { STATS } from '../data'
+import './About.css'
 
 function Stat({ n, label, active }) {
   const v = useCountUp(n, active)
@@ -17,15 +18,16 @@ Stat.propTypes = {
 export default function About() {
   const [ref, seen] = useInView()
   return (
-    <section id="about">
+    <section id="about" className="about-section">
       <div className="wrap about">
-        <Reveal>
+        <Reveal className="about-copy">
+          <span className="about-eyebrow">About Neerva</span>
           <h2>We treat the water no one wants to think about.</h2>
           <p>Neerva started with a simple question: why does clean water go in and dirty water just disappear? Since 2009 our engineers have built treatment plants that make the second half of that journey safe.</p>
           <p>From a 50-home apartment complex to a 100-million-litre municipal plant, we handle design, construction and day-to-day operation, so you get one team accountable for the whole result.</p>
           <a className="btn" href="#services" style={{ marginTop: 8, color: 'var(--deeper)' }}>Explore our services</a>
         </Reveal>
-        <div className={`stats reveal ${seen ? 'in' : ''}`} ref={ref}>
+        <div className={`stats ${seen ? 'in' : ''}`} ref={ref} aria-label="Neerva impact statistics">
           {STATS.map((s) => <Stat key={s.label} {...s} active={seen} />)}
         </div>
       </div>

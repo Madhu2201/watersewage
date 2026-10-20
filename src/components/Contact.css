@@ -1,0 +1,18 @@
+#contact { background: var(--deeper); color: #fff; }
+.ct { display: grid; grid-template-columns: .9fr 1.1fr; gap: 60px; }
+.ct p, .ct li { color: #b5d5d9; }
+.ct ul { margin: 26px 0 0; padding: 0; list-style: none; }
+.ct li { margin-bottom: 12px; }
+#contact form { display: grid; gap: 14px; }
+.f { position: relative; }
+.f input, .f textarea, .f select { width: 100%; padding: 22px 16px 8px; border: 1.5px solid rgba(255, 255, 255, .2); border-radius: 14px; background: rgba(255, 255, 255, .06); color: #fff; font: inherit; transition: border-color .3s; }
+.f select option { color: #000; }
+.f textarea { min-height: 120px; resize: vertical; }
+.f label { position: absolute; top: 15px; left: 17px; color: #9fc3c8; font-size: .95rem; pointer-events: none; transform-origin: left; transition: .25s; }
+.f input:focus, .f textarea:focus, .f select:focus { outline: none; border-color: var(--aqua); }
+.f input:focus + label, .f input:not(:placeholder-shown) + label, .f textarea:focus + label, .f textarea:not(:placeholder-shown) + label, .f select + label { transform: translateY(-10px) scale(.78); }
+.f.err input, .f.err textarea { border-color: #ff8a7a; }
+.f .m { display: none; margin-top: 4px; color: #ff9d8f; font-size: .85rem; }
+.f.err .m { display: block; }
+.ok { display: none; padding: 18px; border: 1px solid var(--reed); border-radius: 14px; background: rgba(143, 209, 111, .15); color: #d8f5c8; }
+@media (max-width: 960px) { .ct { grid-template-columns: 1fr; gap: 40px; } }

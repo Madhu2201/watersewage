@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Reveal from './Reveal'
 import { STEPS } from '../data'
+import './Process.css'
 
 export default function Process() {
   const refs = useRef([])
@@ -30,7 +31,6 @@ export default function Process() {
             <div className="rail" aria-hidden="true">
               <div className="fill" style={{ background: STEPS[current].color }} />
             </div>
-            <span className="tag">{STEPS[current].tag}</span>
           </div>
           <div className="steps">
             {STEPS.map((s, i) => (

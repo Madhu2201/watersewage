@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { NAV } from '../data'
+import './Navbar.css'
 
 export default function Navbar() {
   const [solid, setSolid] = useState(false)

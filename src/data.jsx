@@ -1,4 +1,4 @@
-export const NAV = [
+﻿export const NAV = [
   ['home', 'Home'], ['about', 'About Us'], ['services', 'Our Services'],
   ['process', 'Treatment Process'], ['sustainability', 'Sustainability'], ['contact', 'Contact Us'],
 ]
@@ -22,11 +22,11 @@ export const SERVICES = [
 ]
 
 export const STEPS = [
-  { color: '#8a6d3b', tag: 'Raw wastewater', title: 'Screening and grit removal', text: 'Bar screens catch plastics, rags and debris. Heavy grit settles out so it can’t damage pumps downstream.' },
-  { color: '#8f8a4a', tag: 'Solids settled', title: 'Primary settling', text: 'In large calm tanks, suspended solids sink as sludge and oils float up to be skimmed away.' },
-  { color: '#6fa07a', tag: 'Biologically treated', title: 'Biological treatment', text: 'Friendly microbes in aerated tanks digest dissolved organic waste, doing the heavy lifting of cleaning.' },
-  { color: '#4fb9a8', tag: 'Filtered', title: 'Filtration and clarification', text: 'Sand, membrane and ultrafiltration units remove the finest particles, leaving the water visibly clear.' },
-  { color: '#2ec4e0', tag: 'Safe to reuse', title: 'Disinfection and discharge', text: 'UV light and controlled chlorination remove harmful pathogens. The water is tested, then reused or released safely.' },
+  { color: '#8a6d3b', title: 'Screening and grit removal', text: 'Bar screens catch plastics, rags and debris. Heavy grit settles out so it canâ€™t damage pumps downstream.' },
+  { color: '#8f8a4a', title: 'Primary settling', text: 'In large calm tanks, suspended solids sink as sludge and oils float up to be skimmed away.' },
+  { color: '#6fa07a', title: 'Biological treatment', text: 'Friendly microbes in aerated tanks digest dissolved organic waste, doing the heavy lifting of cleaning.' },
+  { color: '#4fb9a8', title: 'Filtration and clarification', text: 'Sand, membrane and ultrafiltration units remove the finest particles, leaving the water visibly clear.' },
+  { color: '#2ec4e0', title: 'Disinfection and discharge', text: 'UV light and controlled chlorination remove harmful pathogens. The water is tested, then reused or released safely.' },
 ]
 
 export const RINGS = [

@@ -1,5 +1,6 @@
 import Reveal from './Reveal'
 import { SERVICES } from '../data'
+import './Service.css'
 
 export default function Services() {
   return (

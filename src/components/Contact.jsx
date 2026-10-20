@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import './Contact.css'
 import Reveal from './Reveal'
 
 const rules = {
