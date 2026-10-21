@@ -149,4 +149,5 @@
 }
 @media (prefers-reduced-motion: reduce) {
   #process .tank-body-wave, #process .tank-current, #process .tank-bubble { animation: none; }
+
 }
