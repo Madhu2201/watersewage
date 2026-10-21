@@ -26,7 +26,7 @@ export const STEPS = [
   { color: '#8f8a4a', title: 'Primary settling', text: 'In large calm tanks, suspended solids sink as sludge and oils float up to be skimmed away.' },
   { color: '#6fa07a', title: 'Biological treatment', text: 'Friendly microbes in aerated tanks digest dissolved organic waste, doing the heavy lifting of cleaning.' },
   { color: '#4fb9a8', title: 'Filtration and clarification', text: 'Sand, membrane and ultrafiltration units remove the finest particles, leaving the water visibly clear.' },
-  { color: '#2ec4e0', title: 'Disinfection and discharge', text: 'UV light and controlled chlorination remove harmful pathogens. The water is tested, then reused or released safely.' },
+  { color: '#2ec4b6', title: 'Disinfection and discharge', text: 'UV light and controlled chlorination remove harmful pathogens. The water is tested, then reused or released safely.' },
 ]
 
 export const RINGS = [

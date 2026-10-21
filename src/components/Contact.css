@@ -1,23 +1,163 @@
-#contact { position: relative; overflow: hidden; isolation: isolate; background: var(--deeper); color: #fff; }
-#contact::before { position: absolute; z-index: -1; top: -190px; right: -110px; width: 430px; height: 430px; border: 1px solid rgba(46, 196, 182, .2); border-radius: 50%; box-shadow: 0 0 0 24px rgba(46, 196, 182, .035), 0 0 0 54px rgba(46, 196, 182, .025); content: ''; animation: contact-orbit 16s ease-in-out infinite alternate; }
-.ct { display: grid; grid-template-columns: .9fr 1.1fr; gap: 60px; }
-.ct p, .ct li { color: #b5d5d9; }
-.ct ul { margin: 26px 0 0; padding: 0; list-style: none; }
-.ct li { margin-bottom: 12px; }
-#contact form { display: grid; gap: 14px; }
-.f { position: relative; }
-.f input, .f textarea, .f select { width: 100%; padding: 22px 16px 8px; border: 1.5px solid rgba(255, 255, 255, .2); border-radius: 14px; background: rgba(255, 255, 255, .06); color: #fff; font: inherit; transition: border-color .3s; }
-.f select option { color: #000; }
-.f textarea { min-height: 120px; resize: vertical; }
-.f label { position: absolute; top: 15px; left: 17px; color: #9fc3c8; font-size: .95rem; pointer-events: none; transform-origin: left; transition: .25s; }
-.f input:focus, .f textarea:focus, .f select:focus { outline: none; border-color: var(--aqua); }
-.f input:focus + label, .f input:not(:placeholder-shown) + label, .f textarea:focus + label, .f textarea:not(:placeholder-shown) + label, .f select + label { transform: translateY(-10px) scale(.78); }
-.f.err input, .f.err textarea { border-color: #ff8a7a; }
-.f .m { display: none; margin-top: 4px; color: #ff9d8f; font-size: .85rem; }
-.f.err .m { display: block; }
-.ok { display: none; padding: 18px; border: 1px solid var(--reed); border-radius: 14px; background: rgba(143, 209, 111, .15); color: #d8f5c8; }
-#contact .btn { transition: transform .25s, box-shadow .25s, filter .25s; }
-#contact .btn:hover { box-shadow: 0 10px 30px rgba(46, 196, 182, .3); transform: translateY(-3px); }
-@keyframes contact-orbit { to { transform: translate(-24px, 34px) rotate(14deg) scale(1.08); } }
-@media (max-width: 960px) { .ct { grid-template-columns: 1fr; gap: 40px; } }
-@media (prefers-reduced-motion: reduce) { #contact::before { animation: none; } #contact .btn { transition: none; } }
+#contact {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--deeper);
+  color: #fff;
+}
+#contact::before {
+  position: absolute;
+  z-index: -1;
+  top: -190px;
+  right: -110px;
+  width: 430px;
+  height: 430px;
+  border: 1px solid rgba(46, 196, 182, 0.2);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 24px rgba(46, 196, 182, 0.035),
+    0 0 0 54px rgba(46, 196, 182, 0.025);
+  content: "";
+  animation: contact-orbit 16s ease-in-out infinite alternate;
+}
+.ct {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 60px;
+}
+.ct p,
+.ct li {
+  color: #b5d5d9;
+}
+.ct ul {
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.ct li {
+  margin-bottom: 12px;
+}
+#contact form {
+  display: grid;
+  gap: 14px;
+}
+.f {
+  position: relative;
+}
+.f input,
+.f textarea,
+.f select {
+  width: 100%;
+  padding: 22px 16px 8px;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font: inherit;
+  transition: border-color 0.3s;
+}
+.f select option {
+  color: #000;
+}
+.f textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+.f label {
+  position: absolute;
+  top: 15px;
+  left: 17px;
+  color: #9fc3c8;
+  font-size: 0.95rem;
+  pointer-events: none;
+  transform-origin: left;
+  transition: 0.25s;
+  transform: translateY(-10px) scale(0.78);
+}
+.f input:focus,
+.f textarea:focus,
+.f select:focus {
+  outline: none;
+  border-color: var(--aqua);
+}
+.f input:focus + label,
+.f input:not(:placeholder-shown) + label,
+.f textarea:focus + label,
+.f textarea:not(:placeholder-shown) + label,
+.f select + label {
+  transform: translateY(-10px) scale(0.78);
+}
+.f.err input,
+.f.err textarea {
+  border-color: #ff8a7a;
+}
+.f .m {
+  display: none;
+  margin-top: 4px;
+  color: #ff9d8f;
+  font-size: 0.85rem;
+}
+.f.err .m {
+  display: block;
+}
+.ok {
+  display: none;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--reed);
+  border-radius: 14px;
+  background: rgba(143, 209, 111, 0.15);
+  color: #d8f5c8;
+}
+.success-drop {
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  color: var(--aqua);
+  animation: success-drop-pop 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+#contact .btn {
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s,
+    filter 0.25s;
+}
+#contact .btn:hover {
+  box-shadow: 0 10px 30px rgba(46, 196, 182, 0.3);
+  transform: translateY(-3px);
+}
+@keyframes contact-orbit {
+  to {
+    transform: translate(-24px, 34px) rotate(14deg) scale(1.08);
+  }
+}
+@keyframes success-drop-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.55);
+  }
+  65% {
+    opacity: 1;
+    transform: translateY(3px) scale(1.12);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@media (max-width: 960px) {
+  .ct {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #contact::before,
+  .success-drop {
+    animation: none;
+  }
+  #contact .btn {
+    transition: none;
+  }
+}

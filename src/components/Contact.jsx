@@ -57,7 +57,15 @@ export default function Contact() {
             <label htmlFor="t">Tell us about your site</label><span className="m">Add a few words about your project.</span>
           </div>
           <button className="btn" type="submit">Send enquiry</button>
-          {sent && <div className="ok" role="status" style={{ display: 'block' }}>Thank you. Your enquiry is sent and we’ll reply within one working day.</div>}
+          {sent && (
+            <div className="ok" role="status" style={{ display: 'flex' }}>
+              <svg className="success-drop" viewBox="0 0 40 40" aria-hidden="true">
+                <path d="M20 3C16 10 8 17 8 24a12 12 0 0 0 24 0C32 17 24 10 20 3Z" fill="currentColor" />
+                <path d="m14.5 23 4 4 8-9" fill="none" stroke="#06303b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span>Thank you. Your enquiry is sent and we’ll reply within one working day.</span>
+            </div>
+          )}
         </Reveal>
       </div>
     </section>

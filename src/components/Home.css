@@ -11,7 +11,9 @@
 .hero-photo { position: relative; height: clamp(420px, 52vw, 620px); overflow: hidden; border-radius: 18px; background: #dce9e4; animation: hero-photo-slide-in .9s cubic-bezier(.2, .8, .2, 1) both; isolation: isolate; }
 .hero-photo::after { position: absolute; z-index: 1; inset: 0; background: linear-gradient(90deg, rgba(3, 29, 35, .72) 0%, rgba(3, 29, 35, .42) 48%, rgba(3, 29, 35, .04) 100%), linear-gradient(0deg, rgba(3, 29, 35, .3), transparent 60%); content: ''; }
 .hero-photo img { position: absolute; z-index: 0; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; animation: hero-image-drift 18s ease-in-out infinite alternate; }
-.hero-in { position: absolute; z-index: 2; bottom: clamp(28px, 6vw, 72px); left: clamp(24px, 6vw, 76px); max-width: 760px; padding: 0; }
+.hero-ripple { position: absolute; z-index: 2; inset: 0; opacity: 0; background: radial-gradient(circle 44px at var(--ripple-x, 50%) var(--ripple-y, 50%), transparent 55%, rgba(130,234,217,.62) 57%, transparent 61%), radial-gradient(circle 86px at var(--ripple-x, 50%) var(--ripple-y, 50%), transparent 67%, rgba(130,234,217,.34) 69%, transparent 72%), radial-gradient(circle 132px at var(--ripple-x, 50%) var(--ripple-y, 50%), transparent 76%, rgba(130,234,217,.2) 78%, transparent 80%); transition: opacity .25s; pointer-events: none; }
+.hero-photo:hover .hero-ripple { opacity: 1; }
+.hero-in { position: absolute; z-index: 3; bottom: clamp(28px, 6vw, 72px); left: clamp(24px, 6vw, 76px); max-width: 760px; padding: 0; }
 .hero-in > * { opacity: 0; animation: hero-copy-rise .7s cubic-bezier(.2, .8, .2, 1) forwards; }
 .hero-in > :nth-child(1) { animation-delay: .25s; }
 .hero-in > :nth-child(2) { animation-delay: .42s; }

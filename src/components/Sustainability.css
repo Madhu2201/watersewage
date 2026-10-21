@@ -19,62 +19,98 @@
 @keyframes sustainability-ring-spin { to { transform: rotate(360deg); } }
 @media (max-width: 960px) { .sus { grid-template-columns: 1fr; gap: 40px; } }
 @media (prefers-reduced-motion: reduce) { .ring.in svg, .ring.in .v { animation: none; } .ring b { transition: none; } } */
-#sustainability { background: linear-gradient(180deg, var(--bg), #e3f1e9); }
-.sus { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+#sustainability {
+  background: linear-gradient(180deg, var(--bg), #e3f1e9);
+}
+.sus {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
 
 /* ---------- rows ---------- */
-.rings { display: grid; }
+.rings {
+  display: grid;
+}
 .ring {
   display: grid;
   grid-template-columns: 124px 1fr;
   gap: 28px;
   align-items: center;
   padding: 22px 0;
-  border-top: 1px solid rgba(20, 135, 121, .16);
+  border-top: 1px solid rgba(20, 135, 121, 0.16);
 }
-.ring:first-child { border-top: 0; padding-top: 0; }
-.ring:last-child { padding-bottom: 0; }
+.ring:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+.ring:last-child {
+  padding-bottom: 0;
+}
 
 /* ---------- the water glass ---------- */
 .ring svg {
   width: 124px;
   height: 124px;
   overflow: visible;
-  transition: transform .5s cubic-bezier(.2, .8, .2, 1);
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
-.ring:hover svg { transform: scale(1.06) rotate(-4deg); }
+.ring:hover svg {
+  transform: scale(1.06) rotate(-4deg);
+}
 
-.ring .glass { fill: rgba(255, 255, 255, .55); }
-.ring .rim { fill: none; stroke: rgba(20, 135, 121, .28); stroke-width: 2.5; }
+.ring .glass {
+  fill: rgba(255, 255, 255, 0.55);
+}
+.ring .rim {
+  fill: none;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2.5;
+}
 .ring .shine {
   fill: none;
   stroke: #fff;
   stroke-width: 3;
   stroke-linecap: round;
-  opacity: .8;
+  opacity: 0.8;
 }
 
 /* water starts below the glass, then rises to --ty */
 .ring .water {
   transform: translateY(110px);
-  transition: transform 2.2s cubic-bezier(.2, .7, .2, 1) var(--d, 0ms);
+  transition: transform 2.2s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0ms);
 }
-.ring.in .water { transform: translateY(var(--ty)); }
+.ring.in .water {
+  transform: translateY(var(--ty));
+}
 
-.ring .wave { animation: wave-drift 3.4s linear infinite; }
+.ring .wave {
+  animation: wave-drift 3.4s linear infinite;
+}
 .ring .wave.back {
-  fill: rgba(20, 135, 121, .32);
+  fill: rgba(20, 135, 121, 0.32);
   transform: translateY(-2.5px);
   animation-duration: 5.2s;
   animation-direction: reverse;
 }
 
-@keyframes wave-drift { to { transform: translateX(-50px); } }
+@keyframes wave-drift {
+  to {
+    transform: translateX(-50px);
+  }
+}
 /* back wave keeps its vertical offset while drifting */
-.ring .wave.back { animation-name: wave-drift-back; }
+.ring .wave.back {
+  animation-name: wave-drift-back;
+}
 @keyframes wave-drift-back {
-  from { transform: translate(0, -2.5px); }
-  to { transform: translate(-50px, -2.5px); }
+  from {
+    transform: translate(0, -2.5px);
+  }
+  to {
+    transform: translate(-50px, -2.5px);
+  }
 }
 
 /* ---------- text ---------- */
@@ -83,23 +119,57 @@
   font: 800 2rem/1 var(--h);
   font-variant-numeric: tabular-nums;
   color: #0f3b3a;
-  transition: color .3s, transform .3s;
+  transition:
+    color 0.3s,
+    transform 0.3s;
 }
-.ring b small { font-size: .55em; margin-left: 2px; color: #148779; }
-.ring:hover b { color: #148779; transform: translateY(-2px); }
-.ring span { display: block; margin-top: 8px; color: var(--muted); font-size: .98rem; }
+.ring b small {
+  font-size: 0.55em;
+  margin-left: 2px;
+  color: #148779;
+}
+.ring:hover b {
+  color: #148779;
+  transform: translateY(-2px);
+}
+.ring span {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
 
 @media (max-width: 960px) {
-  .sus { grid-template-columns: 1fr; gap: 40px; }
+  .sus {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 }
 @media (max-width: 480px) {
-  .ring { grid-template-columns: 96px 1fr; gap: 18px; }
-  .ring svg { width: 96px; height: 96px; }
-  .ring b { font-size: 1.6rem; }
+  .ring {
+    grid-template-columns: 96px 1fr;
+    gap: 18px;
+  }
+  .ring svg {
+    width: 96px;
+    height: 96px;
+  }
+  .ring b {
+    font-size: 1.6rem;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
-  .ring .water { transition: none; }
-  .ring.in .water { transform: translateY(var(--ty)); }
-  .ring .wave { animation: none; }
-  .ring svg, .ring b { transition: none; }
+  .ring .water {
+    transition: none;
+  }
+  .ring.in .water {
+    transform: translateY(var(--ty));
+  }
+  .ring .wave {
+    animation: none;
+  }
+  .ring svg,
+  .ring b {
+    transition: none;
+  }
 }
