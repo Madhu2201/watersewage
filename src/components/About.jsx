@@ -56,7 +56,7 @@ export default function About() {
       <div className="wrap about">
         <Reveal className="about-copy">
           <span className="about-eyebrow">About Neerva</span>
-          <h2>We treat the water no one wants to think about.</h2>
+          <h2>We treat the water <em>no one wants to think about.</em></h2>
           <p>Neerva started with a simple question: why does clean water go in and dirty water just disappear? Since 2009 our engineers have built treatment plants that make the second half of that journey safe.</p>
           <p>From a 50-home apartment complex to a 100-million-litre municipal plant, we handle design, construction and day-to-day operation, so you get one team accountable for the whole result.</p>
           <a className="btn" href="#services" style={{ marginTop: 8, color: 'var(--deeper)' }}>Explore our services</a>

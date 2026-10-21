@@ -1,4 +1,4 @@
-#sustainability { background: linear-gradient(180deg, var(--bg), #e3f1e9); }
+/* #sustainability { background: linear-gradient(180deg, var(--bg), #e3f1e9); }
 .sus { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
 .rings { display: grid; gap: 26px; }
 .ring { display: grid; grid-template-columns: 96px 1fr; gap: 20px; align-items: center; }
@@ -7,6 +7,7 @@
 .ring .t { stroke: var(--line); }
 .ring .v { stroke: var(--reed); stroke-dasharray: 264; stroke-dashoffset: 264; filter: drop-shadow(0 0 5px rgba(143, 209, 111, .28)); transition: stroke-dashoffset 1.6s cubic-bezier(.2, .7, .2, 1); }
 .ring.in .v { stroke-dashoffset: calc(264 - 264 * var(--p) / 100); }
+.ring.in .v { transform-box: fill-box; transform-origin: center; animation: sustainability-ring-spin 18s linear 1.6s infinite; }
 .ring.in svg { animation: ring-arrive .7s cubic-bezier(.2,.8,.2,1) both; }
 .ring:nth-child(2).in svg { animation-delay: .12s; }
 .ring:nth-child(3).in svg { animation-delay: .24s; }
@@ -15,5 +16,90 @@
 .ring b { font: 800 1.5rem var(--h); }
 .ring span { display: block; color: var(--muted); font-size: .95rem; }
 @keyframes ring-arrive { from { opacity: .35; transform: rotate(-110deg) scale(.82); } to { opacity: 1; transform: rotate(-90deg) scale(1); } }
+@keyframes sustainability-ring-spin { to { transform: rotate(360deg); } }
 @media (max-width: 960px) { .sus { grid-template-columns: 1fr; gap: 40px; } }
-@media (prefers-reduced-motion: reduce) { .ring.in svg { animation: none; } .ring b { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .ring.in svg, .ring.in .v { animation: none; } .ring b { transition: none; } } */
+#sustainability { background: linear-gradient(180deg, var(--bg), #e3f1e9); }
+.sus { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+
+/* ---------- rows ---------- */
+.rings { display: grid; }
+.ring {
+  display: grid;
+  grid-template-columns: 124px 1fr;
+  gap: 28px;
+  align-items: center;
+  padding: 22px 0;
+  border-top: 1px solid rgba(20, 135, 121, .16);
+}
+.ring:first-child { border-top: 0; padding-top: 0; }
+.ring:last-child { padding-bottom: 0; }
+
+/* ---------- the water glass ---------- */
+.ring svg {
+  width: 124px;
+  height: 124px;
+  overflow: visible;
+  transition: transform .5s cubic-bezier(.2, .8, .2, 1);
+}
+.ring:hover svg { transform: scale(1.06) rotate(-4deg); }
+
+.ring .glass { fill: rgba(255, 255, 255, .55); }
+.ring .rim { fill: none; stroke: rgba(20, 135, 121, .28); stroke-width: 2.5; }
+.ring .shine {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3;
+  stroke-linecap: round;
+  opacity: .8;
+}
+
+/* water starts below the glass, then rises to --ty */
+.ring .water {
+  transform: translateY(110px);
+  transition: transform 2.2s cubic-bezier(.2, .7, .2, 1) var(--d, 0ms);
+}
+.ring.in .water { transform: translateY(var(--ty)); }
+
+.ring .wave { animation: wave-drift 3.4s linear infinite; }
+.ring .wave.back {
+  fill: rgba(20, 135, 121, .32);
+  transform: translateY(-2.5px);
+  animation-duration: 5.2s;
+  animation-direction: reverse;
+}
+
+@keyframes wave-drift { to { transform: translateX(-50px); } }
+/* back wave keeps its vertical offset while drifting */
+.ring .wave.back { animation-name: wave-drift-back; }
+@keyframes wave-drift-back {
+  from { transform: translate(0, -2.5px); }
+  to { transform: translate(-50px, -2.5px); }
+}
+
+/* ---------- text ---------- */
+.ring b {
+  display: block;
+  font: 800 2rem/1 var(--h);
+  font-variant-numeric: tabular-nums;
+  color: #0f3b3a;
+  transition: color .3s, transform .3s;
+}
+.ring b small { font-size: .55em; margin-left: 2px; color: #148779; }
+.ring:hover b { color: #148779; transform: translateY(-2px); }
+.ring span { display: block; margin-top: 8px; color: var(--muted); font-size: .98rem; }
+
+@media (max-width: 960px) {
+  .sus { grid-template-columns: 1fr; gap: 40px; }
+}
+@media (max-width: 480px) {
+  .ring { grid-template-columns: 96px 1fr; gap: 18px; }
+  .ring svg { width: 96px; height: 96px; }
+  .ring b { font-size: 1.6rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ring .water { transition: none; }
+  .ring.in .water { transform: translateY(var(--ty)); }
+  .ring .wave { animation: none; }
+  .ring svg, .ring b { transition: none; }
+}
