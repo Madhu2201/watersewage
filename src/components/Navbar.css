@@ -1,23 +1,125 @@
-header { position: fixed; inset: 0 0 auto; z-index: 50; padding-top: env(safe-area-inset-top, 0px); background: rgba(255, 255, 255, .94); box-shadow: 0 1px 0 rgba(6, 48, 59, .06); transition: background .3s, box-shadow .3s; }
-header.solid { background: rgba(4, 31, 39, .92); backdrop-filter: blur(10px); box-shadow: 0 1px 0 rgba(255, 255, 255, .08); }
-nav { display: flex; align-items: center; justify-content: space-between; height: 72px; color: var(--deep); }
-.logo { display: flex; align-items: center; gap: 10px; color: var(--deep); font: 800 1.35rem var(--h); text-decoration: none; }
-.menu { display: flex; gap: 30px; margin: 0; padding: 0; list-style: none; }
-.menu a { position: relative; padding: 6px 0; color: var(--deep); font-size: .98rem; font-weight: 500; text-decoration: none; }
-.menu a::after { position: absolute; right: 0; bottom: 0; left: 0; height: 2px; background: var(--aqua); content: ''; transform: scaleX(0); transform-origin: left; transition: transform .35s; }
-.menu a:hover::after, .menu a.on::after { transform: scaleX(1); }
-.burger { display: none; width: 44px; height: 44px; border: 0; background: none; color: #fff; cursor: pointer; }
-.burger span { display: block; width: 24px; height: 2px; margin: 6px auto; background: var(--deep); transition: .3s; }
-header.solid .logo, header.solid .menu a { color: #fff; }
-header.solid .burger span { background: #fff; }
-header.solid .logo svg path:nth-child(2) { stroke: #fff; }
-.burger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-.burger.open span:nth-child(2) { opacity: 0; }
-.burger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  padding-top: env(safe-area-inset-top, 0px);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 1px 0 rgba(6, 48, 59, 0.06);
+  transition:
+    background 0.3s,
+    box-shadow 0.3s;
+}
+header.solid {
+  background: rgba(4, 31, 39, 0.92);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  color: var(--deep);
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--deep);
+  font: 800 1.35rem var(--h);
+  text-decoration: none;
+}
+.menu {
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.menu a {
+  position: relative;
+  padding: 6px 0;
+  color: var(--deep);
+  font-size: 0.98rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+.menu a::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: var(--aqua);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s;
+}
+.menu a:hover::after,
+.menu a.on::after {
+  transform: scaleX(1);
+}
+.burger {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+}
+.burger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin: 6px auto;
+  background: var(--deep);
+  transition: 0.3s;
+}
+header.solid .logo,
+header.solid .menu a {
+  color: #fff;
+}
+header.solid .burger span {
+  background: #fff;
+}
+header.solid .logo svg path:nth-child(2) {
+  stroke: #fff;
+}
+.burger.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.burger.open span:nth-child(2) {
+  opacity: 0;
+}
+.burger.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
 @media (max-width: 720px) {
-  .burger { display: block; }
-  .menu { position: fixed; inset: 72px 0 auto; flex-direction: column; gap: 0; margin-top: env(safe-area-inset-top, 0px); padding: 10px 24px 24px; background: var(--deeper); transform: translateY(-130%); transition: transform .4s; }
-  .menu.open { transform: none; }
-  .menu.open a { color: #fff; }
-  .menu li a { display: block; padding: 16px 0; border-bottom: 1px solid rgba(255, 255, 255, .1); }
+  .burger {
+    display: block;
+  }
+  .menu {
+    position: fixed;
+    inset: 72px 0 auto;
+    flex-direction: column;
+    gap: 0;
+    margin-top: env(safe-area-inset-top, 0px);
+    padding: 10px 24px 24px;
+    background: var(--deeper);
+    transform: translateY(-130%);
+    transition: transform 0.4s;
+  }
+  .menu.open {
+    transform: none;
+  }
+  .menu.open a {
+    color: #fff;
+  }
+  .menu li a {
+    display: block;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
 }
