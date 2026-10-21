@@ -4,8 +4,8 @@ import Contact from './components/Contact'
 import Hero from './components/Home'
 import Navbar from './components/Navbar'
 import Process from './components/Process'
-import Services from './components/service'
-import Sustainability from './components/sustainability'
+import Services from './components/Service'
+import Sustainability from './components/Sustainability'
 
 function App() {
 

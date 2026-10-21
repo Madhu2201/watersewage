@@ -1,4 +1,5 @@
-#contact { background: var(--deeper); color: #fff; }
+#contact { position: relative; overflow: hidden; isolation: isolate; background: var(--deeper); color: #fff; }
+#contact::before { position: absolute; z-index: -1; top: -190px; right: -110px; width: 430px; height: 430px; border: 1px solid rgba(46, 196, 182, .2); border-radius: 50%; box-shadow: 0 0 0 24px rgba(46, 196, 182, .035), 0 0 0 54px rgba(46, 196, 182, .025); content: ''; animation: contact-orbit 16s ease-in-out infinite alternate; }
 .ct { display: grid; grid-template-columns: .9fr 1.1fr; gap: 60px; }
 .ct p, .ct li { color: #b5d5d9; }
 .ct ul { margin: 26px 0 0; padding: 0; list-style: none; }
@@ -15,4 +16,8 @@
 .f .m { display: none; margin-top: 4px; color: #ff9d8f; font-size: .85rem; }
 .f.err .m { display: block; }
 .ok { display: none; padding: 18px; border: 1px solid var(--reed); border-radius: 14px; background: rgba(143, 209, 111, .15); color: #d8f5c8; }
+#contact .btn { transition: transform .25s, box-shadow .25s, filter .25s; }
+#contact .btn:hover { box-shadow: 0 10px 30px rgba(46, 196, 182, .3); transform: translateY(-3px); }
+@keyframes contact-orbit { to { transform: translate(-24px, 34px) rotate(14deg) scale(1.08); } }
 @media (max-width: 960px) { .ct { grid-template-columns: 1fr; gap: 40px; } }
+@media (prefers-reduced-motion: reduce) { #contact::before { animation: none; } #contact .btn { transition: none; } }

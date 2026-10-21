@@ -2,11 +2,18 @@
 .sus { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
 .rings { display: grid; gap: 26px; }
 .ring { display: grid; grid-template-columns: 96px 1fr; gap: 20px; align-items: center; }
-.ring svg { width: 96px; height: 96px; transform: rotate(-90deg); }
+.ring svg { width: 96px; height: 96px; overflow: visible; transform: rotate(-90deg); }
 .ring circle { fill: none; stroke-width: 9; stroke-linecap: round; }
 .ring .t { stroke: var(--line); }
-.ring .v { stroke: var(--reed); stroke-dasharray: 264; stroke-dashoffset: 264; transition: stroke-dashoffset 1.6s cubic-bezier(.2, .7, .2, 1); }
+.ring .v { stroke: var(--reed); stroke-dasharray: 264; stroke-dashoffset: 264; filter: drop-shadow(0 0 5px rgba(143, 209, 111, .28)); transition: stroke-dashoffset 1.6s cubic-bezier(.2, .7, .2, 1); }
 .ring.in .v { stroke-dashoffset: calc(264 - 264 * var(--p) / 100); }
+.ring.in svg { animation: ring-arrive .7s cubic-bezier(.2,.8,.2,1) both; }
+.ring:nth-child(2).in svg { animation-delay: .12s; }
+.ring:nth-child(3).in svg { animation-delay: .24s; }
+.ring b { display: inline-block; transition: color .3s, transform .3s; }
+.ring:hover b { color: #148779; transform: translateY(-2px); }
 .ring b { font: 800 1.5rem var(--h); }
 .ring span { display: block; color: var(--muted); font-size: .95rem; }
+@keyframes ring-arrive { from { opacity: .35; transform: rotate(-110deg) scale(.82); } to { opacity: 1; transform: rotate(-90deg) scale(1); } }
 @media (max-width: 960px) { .sus { grid-template-columns: 1fr; gap: 40px; } }
+@media (prefers-reduced-motion: reduce) { .ring.in svg { animation: none; } .ring b { transition: none; } }
