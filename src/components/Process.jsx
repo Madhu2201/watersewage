@@ -78,15 +78,12 @@ export default function Process() {
               <div
                 className="fill"
                 style={{
-                  backgroundColor: tank.color,
+                  color: tank.color,
                   height: `${tank.level}%`,
                 }}
               >
-                <svg className="tank-water-wave wave-back" viewBox="0 0 200 32" preserveAspectRatio="none" aria-hidden="true">
-                  <path d="M0 17 C25 3 50 3 75 17 S125 31 150 17 S175 3 200 17 L200 32 L0 32Z" fill="rgba(225,255,250,.34)" />
-                </svg>
-                <svg className="tank-water-wave wave-front" viewBox="0 0 200 32" preserveAspectRatio="none" aria-hidden="true">
-                  <path d="M0 14 C25 28 50 28 75 14 S125 0 150 14 S175 28 200 14 L200 32 L0 32Z" fill="rgba(255,255,255,.32)" />
+                <svg className="tank-body-wave" viewBox="0 0 400 100" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M0 3 C25 1 50 1 75 3 S125 5 150 3 S200 1 225 3 S275 5 300 3 S350 1 375 3 S425 5 450 3 L450 100 L0 100Z" />
                 </svg>
                 <span className="tank-current current-one" />
                 <span className="tank-current current-two" />

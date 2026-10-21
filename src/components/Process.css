@@ -31,27 +31,19 @@
   bottom: 0;
   left: 0;
   container-type: size;
-  background: var(--murk);
-  clip-path: polygon(0 3%, 5% 2%, 10% 1%, 15% 0%, 20% 1%, 25% 2%, 30% 3%, 35% 4%, 40% 4%, 45% 3%, 50% 2%, 55% 1%, 60% 0%, 65% 1%, 70% 2%, 75% 3%, 80% 4%, 85% 4%, 90% 3%, 95% 2%, 100% 1%, 100% 100%, 0 100%);
-  animation: process-water-body-wave 5s ease-in-out infinite alternate;
+  background: transparent;
   will-change: height, background-color;
 }
-#process .tank-water-wave {
+#process .tank-body-wave {
   position: absolute;
-  z-index: 2;
-  top: -16px;
+  top: 0;
   left: -50%;
   display: block;
   width: 200%;
-  height: 32px;
+  height: 100%;
   pointer-events: none;
-}
-#process .wave-back {
-  opacity: .78;
-  animation: process-tank-wave-back 5.4s linear infinite;
-}
-#process .wave-front {
-  animation: process-tank-wave-front 3.8s linear infinite;
+  fill: currentColor;
+  animation: process-tank-wave-sway 2.8s ease-in-out infinite alternate;
 }
 #process .tank-current {
   position: absolute;
@@ -126,13 +118,8 @@
   margin: 0;
   color: var(--muted);
 }
-@keyframes process-tank-wave-back { from { transform: translateX(-25%); } to { transform: translateX(25%); } }
-@keyframes process-tank-wave-front { from { transform: translateX(25%); } to { transform: translateX(-25%); } }
+@keyframes process-tank-wave-sway { from { translate: -14% 0; } to { translate: 14% 0; } }
 @keyframes process-tank-current { from { transform: translateY(0); } to { transform: translateY(-75%); } }
-@keyframes process-water-body-wave {
-  from { clip-path: polygon(0 3%, 5% 2%, 10% 1%, 15% 0%, 20% 1%, 25% 2%, 30% 3%, 35% 4%, 40% 4%, 45% 3%, 50% 2%, 55% 1%, 60% 0%, 65% 1%, 70% 2%, 75% 3%, 80% 4%, 85% 4%, 90% 3%, 95% 2%, 100% 1%, 100% 100%, 0 100%); }
-  to { clip-path: polygon(0 2%, 5% 1%, 10% 0%, 15% 1%, 20% 2%, 25% 3%, 30% 4%, 35% 4%, 40% 3%, 45% 2%, 50% 1%, 55% 0%, 60% 1%, 65% 2%, 70% 3%, 75% 4%, 80% 4%, 85% 3%, 90% 2%, 95% 1%, 100% 0%, 100% 100%, 0 100%); }
-}
 @keyframes process-tank-bubble-rise {
   0% { translate: 0 0; opacity: 0; scale: .55; }
   12% { opacity: .78; }
@@ -161,5 +148,5 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  #process .fill, #process .tank-water-wave, #process .tank-current, #process .tank-bubble { animation: none; }
+  #process .tank-body-wave, #process .tank-current, #process .tank-bubble { animation: none; }
 }
